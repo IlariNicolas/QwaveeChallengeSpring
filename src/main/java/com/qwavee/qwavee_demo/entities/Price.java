@@ -1,7 +1,7 @@
 package com.qwavee.qwavee_demo.entities;
 
-import java.sql.Date;
 import java.util.Currency;
+import java.util.Date;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -47,12 +47,13 @@ public class Price {
   public Price() {
   }
 
-  public Price(Product product, Date startDate, Date endDate, int priority, Currency curr) {
+  public Price(Product product, Date startDate, Date endDate, int priority, Currency curr, float price) {
     this.product = product;
     this.brand = product.getProductBrand();
     this.startDate = startDate;
     this.endDate = endDate;
     this.priority = priority;
     this.curr = curr;
+    this.price = price;
   }
 }

@@ -1,5 +1,7 @@
 package com.qwavee.qwavee_demo.entities;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -11,6 +13,7 @@ import lombok.Data;
 @Entity
 
 public class Brand {
+
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY) // generate the id of each brand
   private int id;

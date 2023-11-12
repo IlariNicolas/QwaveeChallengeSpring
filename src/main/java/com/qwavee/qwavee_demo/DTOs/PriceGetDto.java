@@ -5,18 +5,18 @@ import java.sql.Date;
 import lombok.Data;
 
 @Data
-public class PriceDto {
+public class PriceGetDto {
   private int priceList;
   private int idBrand;
   private int idProduct;
-  private Date startDate;
-  private Date endDate;
+  private String startDate;
+  private String endDate;
   private String finalPrice;
 
-  public PriceDto() {
+  public PriceGetDto() {
   }
 
-  public PriceDto(int priceList, int idBrand, int idProduct, Date startDate, Date endDate, String finalPrice) {
+  public PriceGetDto(int priceList, int idBrand, int idProduct, String startDate, String endDate, String finalPrice) {
     this.priceList = priceList;
     this.idBrand = idBrand;
     this.idProduct = idProduct;
