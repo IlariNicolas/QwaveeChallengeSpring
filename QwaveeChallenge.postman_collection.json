@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "b1252095-0cd0-4605-a4f0-46875ea19e16",
+		"_postman_id": "da94b828-4202-49a7-a7f9-70a7464b9f1e",
 		"name": "QwaveeChallenge",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "31037876"
@@ -48,7 +48,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"brandId\":1,\n  \"productId\":3455,\n  \"priority\":0,\n  \"startDate\":\"06/14/2020 00:00:00\",\n  \"endDate\":\"12/31/2020 23:59:59\",\n  \"price\":35.50,\n  \"curr\":\"EUR\"\n}",
+									"raw": "{\n  \"brandId\":1,\n  \"productId\":3455,\n  \"priority\":1,\n  \"startDate\":\"06/14/2020 15:00:00\",\n  \"endDate\":\"06/14/2020 18:30:00\",\n  \"price\":25.45,\n  \"curr\":\"EUR\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
