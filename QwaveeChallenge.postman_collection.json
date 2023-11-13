@@ -1,0 +1,484 @@
+{
+	"info": {
+		"_postman_id": "b1252095-0cd0-4605-a4f0-46875ea19e16",
+		"name": "QwaveeChallenge",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31037876"
+	},
+	"item": [
+		{
+			"name": "Post",
+			"item": [
+				{
+					"name": "Prices",
+					"item": [
+						{
+							"name": "PostPrice1",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"brandId\":1,\n  \"productId\":3455,\n  \"priority\":0,\n  \"startDate\":\"06/14/2020 00:00:00\",\n  \"endDate\":\"12/31/2020 23:59:59\",\n  \"price\":35.50,\n  \"curr\":\"EUR\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9001/api/prices",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9001",
+									"path": [
+										"api",
+										"prices"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PostPrice2",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"brandId\":1,\n  \"productId\":3455,\n  \"priority\":0,\n  \"startDate\":\"06/14/2020 00:00:00\",\n  \"endDate\":\"12/31/2020 23:59:59\",\n  \"price\":35.50,\n  \"curr\":\"EUR\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9001/api/prices",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9001",
+									"path": [
+										"api",
+										"prices"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PostPrice3",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"brandId\":1,\n  \"productId\":3455,\n  \"priority\":1,\n  \"startDate\":\"06/15/2020 00:00:00\",\n  \"endDate\":\"06/15/2020 11:00:00\",\n  \"price\":30.50,\n  \"curr\":\"EUR\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9001/api/prices",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9001",
+									"path": [
+										"api",
+										"prices"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PostPrice4",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"brandId\":1,\n  \"productId\":3455,\n  \"priority\":1,\n  \"startDate\":\"06/15/2020 16:00:00\",\n  \"endDate\":\"12/31/2020 23:59:59\",\n  \"price\":38.95,\n  \"curr\":\"EUR\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9001/api/prices",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9001",
+									"path": [
+										"api",
+										"prices"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "PostBrand",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\":\"ZARA\",\n  \"description\":\"Is a Spanish multi-national retail clothing chain.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9001/api/brands",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9001",
+							"path": [
+								"api",
+								"brands"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PostProduct",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"Brand new Jogger\",\n    \"description\":\"description of the Jogger\",\n    \"idBrand\":1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9001/api/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9001",
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Price - Test",
+			"item": [
+				{
+					"name": "Test 1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//Test 1: petición a las 10:00 del día 14 del producto 35455   para la brand 1 (ZARA)",
+									"pm.test(\"Validate Fields\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.priceList).to.eql(1);",
+									"    pm.expect(jsonData.idBrand).to.eql(1);",
+									"    pm.expect(jsonData.idProduct).to.eql(3455);",
+									"    pm.expect(jsonData.startDate).to.eql(\"2020-06-14-00.00.00\");",
+									"    pm.expect(jsonData.endDate).to.eql(\"2020-12-31-23.59.59\");",
+									"    pm.expect(jsonData.finalPrice).to.eql(\"35.5 EUR\");",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9001/api/prices?date=06/14/2020 10:00:00&idProduc=3455&idBrand=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9001",
+							"path": [
+								"api",
+								"prices"
+							],
+							"query": [
+								{
+									"key": "date",
+									"value": "06/14/2020 10:00:00"
+								},
+								{
+									"key": "idProduc",
+									"value": "3455"
+								},
+								{
+									"key": "idBrand",
+									"value": "1"
+								}
+							]
+						},
+						"description": "#Test 1 of Qwavee Challenge"
+					},
+					"response": []
+				},
+				{
+					"name": "Test 2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//Test 2: petición a las 16:00 del día 14 del producto 35455   para la brand 1 (ZARA) se espera el precio 2 ya que es de mayor prioridad",
+									"pm.test(\"Validate Fields\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.priceList).to.eql(2);",
+									"    pm.expect(jsonData.idBrand).to.eql(1);",
+									"    pm.expect(jsonData.idProduct).to.eql(3455);",
+									"    pm.expect(jsonData.startDate).to.eql(\"2020-06-14-15.00.00\");",
+									"    pm.expect(jsonData.endDate).to.eql(\"2020-06-14-18.30.00\");",
+									"    pm.expect(jsonData.finalPrice).to.eql(\"25.45 EUR\");",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9001/api/prices?date=06/14/2020 16:00:00&idProduc=3455&idBrand=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9001",
+							"path": [
+								"api",
+								"prices"
+							],
+							"query": [
+								{
+									"key": "date",
+									"value": "06/14/2020 16:00:00"
+								},
+								{
+									"key": "idProduc",
+									"value": "3455"
+								},
+								{
+									"key": "idBrand",
+									"value": "1"
+								}
+							]
+						},
+						"description": "#Test 1 of Qwavee Challenge"
+					},
+					"response": []
+				},
+				{
+					"name": "Test 3",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//Test 3: petición a las 21:00 del día 14 del producto 35455   para la brand 1 (ZARA) se espera el precio 1 ya que es el único vigente en la fecha",
+									"pm.test(\"Validate Fields\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.priceList).to.eql(1);",
+									"    pm.expect(jsonData.idBrand).to.eql(1);",
+									"    pm.expect(jsonData.idProduct).to.eql(3455);",
+									"    pm.expect(jsonData.startDate).to.eql(\"2020-06-14-00.00.00\");",
+									"    pm.expect(jsonData.endDate).to.eql(\"2020-12-31-23.59.59\");",
+									"    pm.expect(jsonData.finalPrice).to.eql(\"35.5 EUR\");",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9001/api/prices?date=06/14/2020 21:00:00&idProduc=3455&idBrand=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9001",
+							"path": [
+								"api",
+								"prices"
+							],
+							"query": [
+								{
+									"key": "date",
+									"value": "06/14/2020 21:00:00"
+								},
+								{
+									"key": "idProduc",
+									"value": "3455"
+								},
+								{
+									"key": "idBrand",
+									"value": "1"
+								}
+							]
+						},
+						"description": "#Test 1 of Qwavee Challenge"
+					},
+					"response": []
+				},
+				{
+					"name": "Test 4",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//Test 1: petición a las 10:00 del día 15 del producto 35455   para la brand 1 (ZARA) se espera el precio 3 ya que el de más prioridad en la fecha",
+									"pm.test(\"Validate Fields\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.priceList).to.eql(3);",
+									"    pm.expect(jsonData.idBrand).to.eql(1);",
+									"    pm.expect(jsonData.idProduct).to.eql(3455);",
+									"    pm.expect(jsonData.startDate).to.eql(\"2020-06-15-00.00.00\");",
+									"    pm.expect(jsonData.endDate).to.eql(\"2020-06-15-11.00.00\");",
+									"    pm.expect(jsonData.finalPrice).to.eql(\"30.5 EUR\");",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9001/api/prices?date=06/15/2020 10:00:00&idProduc=3455&idBrand=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9001",
+							"path": [
+								"api",
+								"prices"
+							],
+							"query": [
+								{
+									"key": "date",
+									"value": "06/15/2020 10:00:00"
+								},
+								{
+									"key": "idProduc",
+									"value": "3455"
+								},
+								{
+									"key": "idBrand",
+									"value": "1"
+								}
+							]
+						},
+						"description": "#Test 1 of Qwavee Challenge"
+					},
+					"response": []
+				},
+				{
+					"name": "Test 5",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//Test 1: petición a las 16:00 del día 15 del producto 35455   para la brand 1 (ZARA) se espera el precio 4 ya que el de más prioridad en la fecha",
+									"pm.test(\"Validate Fields\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.priceList).to.eql(4);",
+									"    pm.expect(jsonData.idBrand).to.eql(1);",
+									"    pm.expect(jsonData.idProduct).to.eql(3455);",
+									"    pm.expect(jsonData.startDate).to.eql(\"2020-06-15-16.00.00\");",
+									"    pm.expect(jsonData.endDate).to.eql(\"2020-12-31-23.59.59\");",
+									"    pm.expect(jsonData.finalPrice).to.eql(\"38.95 EUR\");",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9001/api/prices?date=06/15/2020 16:00:00&idProduc=3455&idBrand=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9001",
+							"path": [
+								"api",
+								"prices"
+							],
+							"query": [
+								{
+									"key": "date",
+									"value": "06/15/2020 16:00:00"
+								},
+								{
+									"key": "idProduc",
+									"value": "3455"
+								},
+								{
+									"key": "idBrand",
+									"value": "1"
+								}
+							]
+						},
+						"description": "#Test 1 of Qwavee Challenge"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

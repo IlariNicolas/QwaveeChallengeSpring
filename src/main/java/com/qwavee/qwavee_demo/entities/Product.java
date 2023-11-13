@@ -8,6 +8,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.SequenceGenerator;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,10 +19,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Product {
   @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY) // generate the id of each product
+  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "productSequence")
+  @SequenceGenerator(name = "productSequence", sequenceName = "productSequence", allocationSize = 1, initialValue = 3455)
   private int id;
 
-  @Column(unique = true)
+  @Column
   private String name;
 
   @Column

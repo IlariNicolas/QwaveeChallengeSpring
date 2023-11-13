@@ -39,7 +39,7 @@ public class PriceService {
     try {
       java.util.Date sqlDate = originalFormat.parse(date);
       Price result = this.priceRepository.findPriceByDateBrandAndProduct(sqlDate, idProd, idBrand);
-      System.out.println(result.getPrice());
+
       if (result != null) {
         return this.transformDto(result);
       } else {
@@ -63,7 +63,7 @@ public class PriceService {
           Price price = new Price(product, startDateParse, endDateParse, dtoPrice.getPriority(), dtoPrice.getCurr(),
               dtoPrice.getPrice());
           price = this.priceRepository.save(price);
-          System.out.println(price.getPrice());
+
           String formatStartDate = newFormat.format(startDateParse);
           String formatEndDate = newFormat.format(endDateParse);
           PriceGetDto returnDto = new PriceGetDto(price.getPriceList(), price.getBrand().getId(),
